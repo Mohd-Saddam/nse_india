@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nse_data
+  labels:
+    app: nse_data
+spec:
+  replicas: 4  
+  selector:
+    matchLabels:
+      app: nse_dat
+  template:
+    metadata:
+      labels:
+        app: nse_dat
+    spec:
+      containers:
+        - name: nse_dat
+          image: <image-name>:latest
+          ports:
+            - containerPort: 8000
