@@ -9,13 +9,13 @@
     
     ```bash: 
 
-        clone https://github.com/Mohd-Saddam/flask_article_api.git
+        clone https://github.com/Mohd-Saddam/nse_india.git
 
 
 
 3. Navigate to the directory where the project is located.
     ```bash: 
-        cd nse_data
+        cd nse_india
 4. Create a virtual environment. To install virtualenv if not installed
     ```bash: 
         pip install virtualenv
@@ -29,6 +29,9 @@
 7. On macOS/Linux:
     ```bash: 
         source venv/bin/activate
+7. Change directories:
+    ```bash: 
+        cd nse_data
 8. Install dependencies:
     ```bash: 
         pip install -r requirements.txt
