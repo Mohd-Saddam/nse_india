@@ -29,27 +29,33 @@
 7. On macOS/Linux:
     ```bash: 
         source venv/bin/activate
-7. Change directories:
+8. Change directories:
     ```bash: 
         cd nse_data
-8. Install dependencies:
+9. Install dependencies:
     ```bash: 
         pip install -r requirements.txt
-9. Run project:
+10. Run project:
     ```bash: 
         python manage.py runserver
 
 
 
-10. When you inserting data in db using django commands
+11. When you inserting data in db using django commands
     ```bash: 
         python manage.py import_data data_copy.csv
 
-11. Test API using below API URL in Postman:
+12. Test API using below API URL in Postman:
     ```bash: 
         http://localhost:8000/daily-prices/?start_date=2023-09-05&end_date=2024-01-31&open=19678.20&high=19734.15&low=19601.55&close=19674.55&shares_traded=&turnover=&page=1
 
-12. API Response here looks like as per the rquirements: 
+15. Deploy your Django app using the Kubernetes YAML files:
+    ```bash
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
+
+
+14. API Response here looks like as per the rquirements: 
     ```bash: 
         {
         "start_date": "2023-09-05",
