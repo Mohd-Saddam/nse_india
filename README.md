@@ -45,7 +45,7 @@
     ```bash: 
         python manage.py import_data data_copy.csv
 
-11. API URL:
+11. Test API using below API URL in Postman:
     ```bash: 
         http://localhost:8000/daily-prices/?start_date=2023-09-05&end_date=2024-01-31&open=19678.20&high=19734.15&low=19601.55&close=19674.55&shares_traded=&turnover=&page=1
 

@@ -12,11 +12,18 @@ from rest_framework.exceptions import NotFound
 
 
 
+# The `DailyPriceListView` class is a view that retrieves and filters daily price data, paginates the
+# results, and calculates data ranges for different price attributes.
 class DailyPriceListView(ListAPIView):
     serializer_class = DailyPriceSerializer
     pagination_class = PageNumberPagination
 
     def get_queryset(self):
+        """
+        The  code is a Python function that retrieves and filters daily price data based on user
+        input, and returns the data along with pagination information and data ranges.
+        :return: The `list` method is returning a `Response` object with the following data:
+        """
         # index_name = self.kwargs['index_name']
         start_date = self.request.GET.get('start_date', None)
         end_date = self.request.GET.get('end_date', None)
@@ -51,6 +58,18 @@ class DailyPriceListView(ListAPIView):
 
         return queryset
     def handle_exception(self, exc):
+        """
+        The function handles the exception of type NotFound and returns a response with a message
+        indicating that the requested page data was not found.
+        
+        :param exc: The `exc` parameter is the exception that was raised. In this code snippet, the
+        `handle_exception` method is used to handle exceptions that occur during the execution of the
+        code
+        :return: The code is returning a Response object with a dictionary containing various data
+        fields. The "start_date" and "end_date" fields are populated with the values from the request's
+        GET parameters. The "data" field is an empty list. The "pagination" field contains the "page",
+        "total_pages", and "total_rows" fields, which are empty strings. The "ranges" field is
+        """
         if isinstance(exc, NotFound):
             page = self.request.GET.get('page', 1)
             return Response({
@@ -69,6 +88,19 @@ class DailyPriceListView(ListAPIView):
         return super().handle_exception(exc)
 
     def list(self, request, *args, **kwargs):
+        """
+        The function retrieves a paginated queryset of data, calculates data ranges for different
+        fields, and returns the data along with pagination information and the calculated ranges.
+        
+        :param request: The `request` parameter is an object that represents the HTTP request made by
+        the client. It contains information such as the request method (GET, POST, etc.), headers, query
+        parameters, and body
+        :return: The code is returning a response containing the following data:
+        - "start_date": the value of the 'start_date' parameter from the request's GET parameters
+        - "end_date": the value of the 'end_date' parameter from the request's GET parameters
+        - "data": a serialized representation of the paginated queryset
+        - "pagination": information about the pagination, including the current page number
+        """
         queryset = self.get_queryset()
 
         # Calculate data ranges here
